@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}My Flask App{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Custom CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body class="bg-dark text-white">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark bg-dark border-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home_page') }}">
+                My Flask App
+            </a>
+
+            <div>
+                <a
+                    class="btn btn-outline-light me-2"
+                    href="{{ url_for('home_page') }}"
+                >
+                    Home
+                </a>
+
+                <a
+                    class="btn btn-outline-light"
+                    href="{{ url_for('market_page') }}"
+                >
+                    Market
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <main class="container py-5">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+</html>
