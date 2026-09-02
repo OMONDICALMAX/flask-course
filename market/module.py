@@ -1,5 +1,12 @@
-db = SQLAlchemy(app)
-from flask_sqlalchemy import SQLAlchemy
+from market import db
+
+
+class User(db.Model):
+  id = db.Column(db.Integer(), primary_key=True)
+  username = db.Column(db.string(length=30), nullable=False, unique=True)
+  email_address = db.Column(db.string(length=40), nullable=False, unique=True)
+
+
 
 class Item(db.Model):
   id = db.Column(db.Integer(), primary_key=True)
