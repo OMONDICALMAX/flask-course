@@ -20,6 +20,7 @@
 </head>
 
 <body class="bg-dark text-white">
+    
 
     <!-- Navigation -->
     <nav class="navbar navbar-dark bg-dark border-bottom">
@@ -62,6 +63,18 @@
 
     <!-- Main Content -->
     <main class="container py-5">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+       {% if messages %}
+       
+          {% for category, message in messages %}
+           <p>{{ message }}</p>
+          {% endfor %}
+
+       {% endif %}
+
+    {% endwith %}
 
         {% block content %}
        

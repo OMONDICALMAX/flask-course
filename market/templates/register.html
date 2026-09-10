@@ -6,13 +6,17 @@ Register Page
 {% block content %}
   <body>
      <div class="container text-center">
-        <img src="{{ url_for('static', filename='images/logo.png') }}"
+        
+        <form method="post", class="form-register", style="color: white;">
+            {{ form.hidden_tag() }}
+
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
              alt="Website Logo">
         <h1 class="h3 mb-3 font-weight-normal">
             Please create your account  
         </h1>
         <br>
-        <form method="post", class="form-register", style="color: white;">
+
             {{ form.username.label() }}
             {{ form.username(class="form-control", placeholder="User Name")}}
 
